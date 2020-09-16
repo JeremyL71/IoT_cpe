@@ -2,7 +2,7 @@
 
  - Elève 1: Jérémy LAURENT
  - Elève 2: Louis MORANDET (Absent)
- - Elève 3; Yoann DREVET (Remplaçant)
+ - Elève 3: Yoann DREVET (Remplaçant)
  - binôme: N°18, puce 825
 
 ## Exercice 1: Feu de circulation
@@ -13,7 +13,7 @@
 > LEDs. Pensez bien à garder l’état d’allumage, vous pouvez utiliser la
 > structure switch/case.
 
-code python: 
+code python:
 
     from microbit import *
 	while True:
@@ -65,9 +65,13 @@ code C++ (utiliser Mbade)
 ## Exercice 2: LED RGB Neopixel
 
 > Pour cet exercice vous allez récupérer le matériel demandé dans la Figure 4. À partir des exemples présents sur internet, créez le support d’une led RGB de type Neopixel (voir https://www.adafruit.com/product/1312) dans votre nouvelle application, ce type de LED permet de connecter plusieurs LEDs en chaîne. La LED doît être connectée de cette façon : 
+> 
 > — Pin + à la sortie +3.3V du micro-contrôleur 
+> 
 > — Pin G à la sortie GND du micro-contrôleur 
+> 
 > — Pin I à une sortie GPIO, dans le code donné ça sera le GPIO0_19. 
+> 
 Pour connecter plusieurs LEDs en chaîne vous devez connecter le pin O de la première LED au pin I de la LED suivante et les pins + et G entre les deux LEDs.
 > 
 > Plusieurs exemples de code pour gérer ce type de LED existent sur internet, prenez le temps de bien comprendre les codes et les tester avec une LED. Modifiez ce code pour itérer entre les couleurs bleu, blanc, rouge à une durée de 250ms. Puis si vous avez le temps, ajoutez une deuxième/troisième LED selon la disponibilité de matériel et tester avec plusieurs LEDs
@@ -105,9 +109,13 @@ code python:
 > Ces valeurs seront affichées sur la matrice LED de votre micro :bit.. Le module sensors a une interface I2C pour pouvoir accéder à ses données, la distribution des pins est présenté dans la figure 5. 
 > 
 > Ce module intègre les capteurs suivants avec ces fonctionnalités : 
+> 
 > — TSL2561 : Lumière visible et infra-rouge 
+> 
 > — VEML6070 : Lumière UVA 
+> 
 > — BME280 : Température, Humidité, Pression
+> 
 
 Ma réponse
 
@@ -119,3 +127,19 @@ Ma réponse
 > Pour finir, affichez aussi la température obtenue à partir du capteur sensors pour la comparer à celle intégrée au micro-contrôleur.
 
 Ma réponse
+
+
+## Exercice 5: Écran mono-couleur
+
+Vérification des devices présents:
+
+    from microbit
+	import *
+
+	i2c.init()
+	devices = i2c.scan()
+
+	print(len(devices)) # Combien de périphériques’
+
+	for device in devices:
+	  print(hex(device))
