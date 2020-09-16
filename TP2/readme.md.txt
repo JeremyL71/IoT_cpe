@@ -30,6 +30,37 @@ code python:
 	    pin2.write_digital(0)
 	    sleep(2000)
 
+![enter image description here](https://raw.githubusercontent.com/JeremyL71/IoT_cpe/master/TP2/exo1.jpg)
+
+code C++ (utiliser Mbade)
+
+    #include "MicroBit.h"
+
+	MicroBit uBit;
+
+	int main() {
+	  MicroBitPin FeuRouge = uBit.io.P0;
+	  MicroBitPin FeuOrange = uBit.io.P1;
+	  MicroBitPin FeuVert = uBit.io.P2;
+	  // Initialise the micro:bit runtime.
+	  uBit.init();
+	  while (1) {
+	    FeuVert.setDigitalValue(1);
+	    uBit.sleep(3000);
+	    FeuVert.setDigitalValue(0);
+	    FeuOrange.setDigitalValue(1);
+	    uBit.sleep(1000);
+	    FeuOrange.setDigitalValue(0);
+	    FeuRouge.setDigitalValue(1);
+	    uBit.sleep(3000);
+	    FeuRouge.setDigitalValue(0);
+	  }
+
+	  // If main exits, there may still be other fibers running or registered event handlers etc.
+	  // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
+	  // sit in the idle task forever, in a power efficient sleep.
+	  release_fiber();
+	}
 
 ## Exercice 2: LED RGB Neopixel
 
@@ -41,7 +72,32 @@ Pour connecter plusieurs LEDs en chaîne vous devez connecter le pin O de la pre
 > 
 > Plusieurs exemples de code pour gérer ce type de LED existent sur internet, prenez le temps de bien comprendre les codes et les tester avec une LED. Modifiez ce code pour itérer entre les couleurs bleu, blanc, rouge à une durée de 250ms. Puis si vous avez le temps, ajoutez une deuxième/troisième LED selon la disponibilité de matériel et tester avec plusieurs LEDs
 
-Ma réponse
+code python:
+ 
+    from microbit
+	import *
+	import neopixel
+
+	np = neopixel.NeoPixel(pin0, 2)
+	rouge = (255, 0, 0)
+	blanc = (255, 255, 255)
+	bleu = (0, 0, 255)
+
+	while True:
+	  np[0] = bleu
+	np[1] = bleu
+	np.show()
+	sleep(250)
+	np[0] = blanc
+	np[1] = blanc
+	np.show()
+	sleep(250)
+	np[0] = rouge
+	np[1] = rouge
+	np.show()
+	sleep(250)
+
+![enter image description here](https://raw.githubusercontent.com/JeremyL71/IoT_cpe/master/TP2/exo2.png)
 
 ## Exercice 3: Capteurs météo
 
