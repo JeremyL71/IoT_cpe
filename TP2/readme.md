@@ -13,7 +13,7 @@
 > LEDs. Pensez bien à garder l’état d’allumage, vous pouvez utiliser la
 > structure switch/case.
 
-code python:
+code python: 
 
     from microbit import *
 	while True:
