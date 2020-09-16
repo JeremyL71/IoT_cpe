@@ -117,7 +117,12 @@ code python:
 > — BME280 : Température, Humidité, Pression
 > 
 
-Ma réponse
+Code python (bloc):
+
+    BME280.power_on()
+	def on_forever():
+	basic.show_string("" + str(BME280.temperature(BME280_T.T_C)) + " C " + str(BME280.pressure(BME280_P.PA)) + " Pa " + str(BME280.humidity()) + "%")
+	basic.forever(on_forever)
 
 ## Exercice 4. Écran mono-couleur
 
