@@ -148,3 +148,5 @@ Vérification des devices présents:
 
 	for device in devices:
 	  print(hex(device))
+	  
+![enter image description here](https://raw.githubusercontent.com/JeremyL71/IoT_cpe/master/TP2/exo5.jpg)
