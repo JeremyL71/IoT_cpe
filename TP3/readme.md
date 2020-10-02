@@ -81,6 +81,21 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ## Exercice 2:
+### Version simple (1 sonde)
+Faites une application affichant les données lues sur les 3 axes de l'accéléromètre. Démarche possible :
+- Réutilisez votre programme de l'exercice 1
+- Implémentez l'interface SensorEventListener depuis l'activité ;
+http://developer.android.com/reference/android/hardware/SensorEventListener.html
+- Récupérez une référence vers le gestionnaire de services ;
+Aide : (SensorManager)getSystemService(Context.SENSOR_SERVICE)
+http://developer.android.com/reference/android/hardware/SensorManager.html
+- Enregistrez l'activité en tant qu'écouteur pour le capteur voulus auprès du gestionnaire de service lors de la reprise et la dé-enregistrer à la mise en pause ;
+Note : pensez à choisir une fréquence de rafraîchissement pas trop rapide.
+Aides :
+	- sm.registerListener(....) : Méthode d'enregistrement
+	- sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) : Choix d'un capteur
+	- SensorManager.SENSOR_DELAY_UI : une fréquence de rafraichissement de l'interface graphique
+- Faites en sorte que les valeurs reçues par onSensorChanged soient publiées sur l'interface graphique.
 
 ``` java
 package fr.morandet.helloworld;
@@ -207,3 +222,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
   app:layout_constraintVertical_bias="0.05" />  
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+### Pour attendre les autres (2 sondes)
+Lire les données de 2 capteurs avec votre application (Proximité et accéléromètre?) et les afficher.
+Note : pour savoir à quel capteur est associée une valeur reçue, on peut le demander via :
+event.sensor.getType()
