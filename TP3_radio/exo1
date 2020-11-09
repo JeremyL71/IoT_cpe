@@ -1,0 +1,19 @@
+//Code Emmeteur
+from microbit import *
+import radio
+
+radio.on()
+
+while True:
+	if button_a.is_pressed():
+		radio.sen('Hello World');
+		
+//Code Recepteur
+from microbit import *
+import radio
+
+radio.on()
+
+while True:
+	message = radio.receive()
+	microbit.display.scroll(messsage)
